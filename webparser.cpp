@@ -147,7 +147,6 @@ QMap<QString, QString> WebParser::loadPagePool(QVector<QString> urls)
                 jobs = lastStepSize;
             for(unsigned j = 0; j < jobs; j++)
             {
-                //if(++progress % unit)
                 changeProgressBarValue(++progress);
                         threads.push_back(std::thread([&] {
                           const auto url = urls.at(index++);
@@ -164,7 +163,6 @@ QMap<QString, QString> WebParser::loadPagePool(QVector<QString> urls)
     {
         for(auto& url : urls)
         {
-            //if(++progress % unit)
             changeProgressBarValue(++progress);
             pages.insert(url, uploadPage(url));
         }
